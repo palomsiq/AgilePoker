@@ -25,7 +25,7 @@ public class PlanningSessionController{
     public void newSession(@RequestBody InputPlanningSession inputPlanningSession){
         
         PlanningSession planningSession = PlanningSession.create(inputPlanningSession.title(), inputPlanningSession.deckType());
-        System.out.println(createPlanningSession.execute(planningSession));
+        createPlanningSession.execute(planningSession);
     }
 
 
