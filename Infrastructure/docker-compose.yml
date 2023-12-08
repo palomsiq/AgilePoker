@@ -1,0 +1,29 @@
+version: "3.9"
+services: 
+    pgadmin4:
+        image: dpage/pgadmin4
+        container_name: pgadmin4_container
+        environment: 
+            - PGADMIN_DEFAULT_EMAIL=palomsiq@protonmail.com
+            - PGADMIN_DEFAULT_PASSWORD=paloma1412
+        ports: 
+            - "89:80"   
+        networks: 
+            - postgres-network 
+    postgres:
+        image: postgres:13.2
+        container_name: postgres_container
+        environment: 
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_DB=AgilePoker
+            - POSTGRES_USER=palomaqsnunes
+        ports: 
+            - "5432:5432"
+        networks: 
+            - postgres-network  
+        volumes: 
+            - /var/lib/postgresql/data
+networks: 
+    postgres-network:
+        driver: bridge
+
