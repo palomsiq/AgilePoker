@@ -26,16 +26,16 @@ public class PlanningSessionEntityRepositoryImp implements PlanningSessionReposi
 
     @Override
     public List<PlanningSession> get() {
-        var planningSessionList = new ArrayList<PlanningSession>();
         var interablePlanningSessionEntity = planningSessionEntityRepository.findAll();
-
         //convert interable to list
         var planningSessionEntityList = StreamSupport.stream(interablePlanningSessionEntity.spliterator(), false).toList();
 
-        for(int i = 0; i < planningSessionEntityList.size(); i++){
-                var interator = new PlanningSession(planningSessionEntityList.get(i).getId(),planningSessionEntityList.get(i).getTitle(),planningSessionEntityList.get(i).getDeckType());
-                planningSessionList.add(interator);
-        }
-        return planningSessionList;
+        return planningSessionEntityList
+                .stream()
+                .map(planningSessionEntity ->
+                        new PlanningSession(planningSessionEntity.getId(),
+                                planningSessionEntity.getTitle(),
+                                planningSessionEntity.getDeckType()))
+                .toList();
     }
 }

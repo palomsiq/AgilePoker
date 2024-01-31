@@ -13,7 +13,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/planningSession")
-
 public class PlanningSessionController{
     
     
@@ -34,9 +33,6 @@ public class PlanningSessionController{
     @GetMapping
     public List<PlanningSession> getPlanningSessions(){
        return planningSessionRepository.get();
-
     }
-
-
 }
 
