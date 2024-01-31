@@ -8,4 +8,5 @@ public record PlanningSession(UUID id,String title, String deckType) {
             UUID uuid = UUID.randomUUID();
             return  new PlanningSession(uuid, title, deckType);
     }
+
 }

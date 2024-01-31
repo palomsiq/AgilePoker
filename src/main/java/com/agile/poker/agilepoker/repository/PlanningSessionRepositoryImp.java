@@ -16,4 +16,10 @@ public class PlanningSessionRepositoryImp implements PlanningSessionRepository {
             arrayPlanningSession.add(planningSession);
             return planningSession;
     }
+
+    @Override
+    public List<PlanningSession> get() {
+        return arrayPlanningSession;
+    }
+
 }

@@ -1,14 +1,15 @@
 package com.agile.poker.agilepoker.business;
 
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class CreatePlanningSession {
 
-    private PlanningSessionRepository planningSessionRepository;
+    private final PlanningSessionRepository planningSessionRepository;
     
-    public CreatePlanningSession(PlanningSessionRepository planningSessionRepository){
+    public CreatePlanningSession(@Qualifier("planningSessionEntityRepositoryImp") PlanningSessionRepository planningSessionRepository){
         this.planningSessionRepository = planningSessionRepository;
     }
 

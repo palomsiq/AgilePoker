@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 @Configuration
-@EnableJpaRepositories
+@EnableJpaRepositories(basePackages = {"com.agile.poker.agilepoker.repository"})
 @EnableTransactionManagement
 public class DataSourceConfiguration {
     @Bean
